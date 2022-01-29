@@ -1,9 +1,10 @@
 import requests
+import pprintpp
 from bs4 import BeautifulSoup
 
-html = requests.get("https://mcdonalds.com.pk/our-menu/")
+html = requests.get("https://mcdonalds.com.pk/our-menu/").text
 
 soup = BeautifulSoup(html, 'html.parser')
-#soup.findAll('div') 
-print(soup.prettify())
+print(soup.findAll('div', {"class": "content-title"})) 
+#print(soup.prettify())
 #print(html.text)
